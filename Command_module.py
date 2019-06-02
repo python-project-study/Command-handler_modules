@@ -1,3 +1,5 @@
+### --- Command module
+
 
 from Status_module import *
 from Help_module import *
@@ -36,7 +38,9 @@ class Command(Help, Status, Serial_cls, Terminal, Switch_Test) :
 
 
         print("\n======== Command List ========")
-        print(" help\n help ip address\n help tcp port")
+        print(" help")
+        print(" help ip address")
+        print(" help tcp port")
         print(" status")
         print(" print")
         print("-------------------------------")
@@ -80,7 +84,7 @@ class Command(Help, Status, Serial_cls, Terminal, Switch_Test) :
                 cut_right = str_com[begin_index + len(x):] #get word after cmd for parameter of function
                 #print(cut_right.strip())
                 cls_call = list_command[x] # get addr of class (comm_help) = dic's value
-                cls_call(self, cut_right.strip()) # call a class having argument
+                cls_call(self, cut_right.strip()) # call a class having parameter
                 break
         if (begin_index != 0) & (str_com != ""):
             print("Unknown Command. Enter \"help\" for usage of command.")

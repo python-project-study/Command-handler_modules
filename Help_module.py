@@ -11,25 +11,26 @@ class Help :
     def run_help(self, str_in) :
         if str_in == "": # help
             print("Help ALL")
-            print("\n=============== HELP ===============")
+            print("\n=================== HELP ===================")
             print(" status : see all status of the device.")
+            print(" help ip address : see how to set ip address")
+            print(" help tcp port : see how to set tcp port")
             print(" print : see all values of member variables.")
-            print("--------------------------------------")
-            print(" set ip address xxx.xxx.xxx.xxx   (xxx:0-255 range)")
+            print("----------------------------------------------")
+            print(" ip address xxx.xxx.xxx.xxx : set ip address (xxx:0-255 range)")
             print(" tcp port xx  (xx : tcp port number)")
-            print(" connect tcp : connect TCP")
-            print("--------------------------------------")
+            print(" connect tcp : connect TCP/IP")
+            print("----------------------------------------------")
             print(" serial baudrate xxxxx  (xxxxx:")
             print(" serial port xx  (xx: port number)")
             print(" serial bytesize x  (x: 7 or 8)")
             print(" connect serial : connect serial port")
-            print("--------------------------------------")
+            print("----------------------------------------------")
             print(" read ksw (video switch file name) : read video switch file")
             print(" write ksw (video switch file name) : write video switch file")
             print(" edit ksw (video switch file name) : edit video switch file")
             print(" auto switch : auto switching based on video file")
-            print(" switch : send switching commands")
-            print("======================================\n")
+            print("============================================\n")
 
         else : # help ip address, help tcp port...
             space = 0
@@ -41,7 +42,7 @@ class Help :
                     else :
                         x = ""
                 com_in += x
-          
+
 #            space = 0
 #            com_in = ""
 #            for x in str_in:
@@ -54,8 +55,8 @@ class Help :
 #                else :
 #                    com_in += x
 #                    space = 0
-                    
-            print (com_in)  # complete string of command     
+
+            print (com_in)  # complete string of command
             com_len = len(com_in)
             for x in help_list_command:
                 begin_index = com_in.find(x)
@@ -65,7 +66,7 @@ class Help :
                     cls_call(self) # call a class
                     break
 
-        
+
     def help_ip(self) :
         print("To enter ip address, type this:")
         print("ip address xxx.xxx.xxx.xxx   (xxx : 0 - 255 range)")
@@ -74,6 +75,6 @@ class Help :
         print("To enter tcp port, type this:")
         print("tcp port xx   (xx : tcp port number)")
 
-        
+
 help_list_command = { "ip address": Help.help_ip,
                       "tcp port": Help.help_tcp_port }

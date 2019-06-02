@@ -1,11 +1,12 @@
 ####### Command handler #######
 ### Author : Jisook Kim
 ### Date : May 2019
-
+##############################
 # TCP connection adding.
 # Serial(RS232) connection adding.
 # Video switch file(json) read/write.
 # After reading, auto switch enabled
+
 
 #import socket
 import time
