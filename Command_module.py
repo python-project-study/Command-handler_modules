@@ -1,28 +1,12 @@
-####### Command handler #######
-### Author : Jisook Kim
-### Date : May 2019
 
-# TCP connection adding.
-# Serial(RS232) connection adding.
-# Video switch file(json) read/write.
-# After reading, auto switch enabled
-
-#import socket
-import time
-#import serial
-#import json
-
-# import all methods from module "Status_module.py", more modules below.
 from Status_module import *
 from Help_module import *
 from Serial_module import *
 from Terminal_module import *
 from Switch_module import *
 
-
-
 ###### Command handle part ######
-### Inherit from Help, Status, Network (parent class)
+### Inherit from Help, Status, Serial_cls, Terminal, Switch_Test (parent class)
 
 ### Necessary to inherit???? YES. Parents are from above modules
 class Command(Help, Status, Serial_cls, Terminal, Switch_Test) :
@@ -101,6 +85,8 @@ class Command(Help, Status, Serial_cls, Terminal, Switch_Test) :
         if (begin_index != 0) & (str_com != ""):
             print("Unknown Command. Enter \"help\" for usage of command.")
 
+
+### Command list
 list_command = { "help": Help.run_help,
                  "status": Status.run_status,
 
@@ -108,7 +94,7 @@ list_command = { "help": Help.run_help,
                  "tcp port": Terminal.tcp_port,
                  "connect tcp": Terminal.tcp_connect,
 
-                 "serial baudrate": Serial_cls.serial_baud, # data,parity,stop bits
+                 "serial baudrate": Serial_cls.serial_baud,
                  "serial port": Serial_cls.serial_port,
                  "serial bytesize": Serial_cls.serial_bytesize,
                  "connect serial": Serial_cls.serial_connect,
@@ -120,10 +106,3 @@ list_command = { "help": Help.run_help,
                  "edit ksw" : Switch_Test.v_file_edit,
 
                  "auto switch" : Switch_Test.auto_switch }
-
-
-######### MAIN ########
-comm = Command()
-
-while True :
-    comm.command_handler()
