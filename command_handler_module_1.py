@@ -7,10 +7,10 @@
 # Video switch file(json) read/write.
 # After reading, auto switch enabled
 
-import socket
+#import socket
 import time
-import serial
-import json
+#import serial
+#import json
 
 # import all methods from module "Status_module.py", more modules below.
 from Status_module import *
