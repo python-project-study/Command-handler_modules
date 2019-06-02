@@ -2,6 +2,9 @@
 ### Author : Jisook Kim
 ### Date : May 2019
 
+#### Before spliting each class to module.
+### Just this file itself can be run.
+
 # TCP connection adding.
 # Serial(RS232) connection adding.
 # Video switch file read/write.
