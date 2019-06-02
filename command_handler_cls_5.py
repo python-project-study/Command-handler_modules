@@ -723,6 +723,7 @@ list_command = { "help": Help.run_help,
 comm = Command()
 
 print ("I love you so much, Jisook!!!")
+print ("I miss you so much!!!")
 
 while True :
     comm.command_handler()
