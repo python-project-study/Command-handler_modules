@@ -17,7 +17,7 @@ serverSock.bind((UDP_IP_ADDRESS, UDP_PORT))
 
 while True :
     str_in = input(">>> ")
-    serverSock.sendto(str_in.encode(), ("127.0.0.1", 8000 ))
+    serverSock.sendto(str_in.encode(), ("127.0.0.1", 8000 )) # server1 Port
 
 
     print("waiting for client...\n")

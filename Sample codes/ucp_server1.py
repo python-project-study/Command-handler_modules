@@ -25,4 +25,4 @@ while True :
     print("from :", addr)
 
     str_in = input(">>> ")
-    serverSock.sendto(str_in.encode(), ("127.0.0.1", 8001 ))
+    serverSock.sendto(str_in.encode(), ("127.0.0.1", 8001 )) #server2 Port

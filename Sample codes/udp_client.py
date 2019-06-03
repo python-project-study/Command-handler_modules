@@ -2,26 +2,30 @@
 
 # UDP client part
 
+
 import socket
 
-UDP_IP_ADDRESS = "127.0.0.2"
+server_address = "127.0.0.1"
 #UDP_IP_ADDRESS = "localhost"
 #server_address = ("localhost", 10000)
-UDP_PORT = 8000
+server_port = 8000
 Message = "Hellpppp from client"
 
 
 clientSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 print("UDP Client connected.")
-print("UDP target Port: ", UDP_PORT)
 
-clientSock.sendto(Message.encode(), ("127.0.0.1", UDP_PORT ))
+
+clientSock.sendto(Message.encode(), (server_address, server_port ))
 # OR    clientSock.sendto(b'Message', (UDP_IP_ADDRESS, UDP_PORT ))
 
 while True:
+
+    print("waiting for server...\n")
     data, addr = clientSock.recvfrom(1024)
+    print("from Server: %s" % data.decode()) # data = string data from client
+    print("addr :", addr)  # addr = ip and port
 
-    print("Received Messages from SERVER: ", data.decode())
-    print("from :", addr)
-
+    str_in = input("client >> ")
+    clientSock.sendto(str_in.encode(), (server_address, server_port ))
+    # send data to Server
